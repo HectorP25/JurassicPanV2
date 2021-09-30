@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="dark" >
+    <!-- Boton para volver atras, solo sirve si entras luego de actualizar pagina desaparece -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <!-- Titutlo del producto llamado desde servicio -->
+    <ion-title>{{datos.titulo}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="eliminar()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- creamos una grilla para las imagenes -->
+  <ion-grid class="ion-no-padding">
+    <!-- Imagen de producto -->
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="datos.imagenURL"></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <!-- Nombre de producto -->
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{datos.titulo}}</h1>
+      </ion-col>
+    </ion-row>
+
+    <!-- Comentarios -->
+    <ion-row>
+      <ion-col>
+        <ion-list *ngIf="datos.comentarios && datos.comentarios.length > 0; else sc">
+          <ion-item *ngFor="let com of datos.comentarios">
+            {{com}}
+          </ion-item>
+        </ion-list>
+        <!-- ngTemplate: Es un segmento de codigo que aparece bajo una condicion -->
+        <ng-template #sc>
+          <ion-text>
+            <p class="ion-text-center">Sin comentarios</p>
+          </ion-text>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
+
+</ion-content>

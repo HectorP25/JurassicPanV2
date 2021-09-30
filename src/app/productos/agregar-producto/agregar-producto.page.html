@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="dark" >
+    <!-- Boton para volver atras, solo sirve si entras luego de actualizar pagina desaparece -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <!-- Titutlo del producto llamado desde servicio -->
+    <ion-title>Agregar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-input type="text" placeholder="Ingrese titulo" #titulo ></ion-input>
+          <ion-input type="text" placeholder="Ingrese URL de imagen" #url ></ion-input>
+          <ion-input type="text" placeholder="Ingrese comentario" #comentario ></ion-input>
+          <ion-button color="danger" (click)="agregarProducto(titulo,url,comentario)">AGREGAR</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
