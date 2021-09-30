@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// importamos la clase del servicio
 import { ProductosService } from './productos.service';
-// importar el router
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-productos',
@@ -14,7 +13,7 @@ export class ProductosPage implements OnInit {
   private productos = []
   
   // el constructor utiliza el servicio y este servicio ahora es parte del html
-  constructor(private servicioProductos : ProductosService, private rout : Router) { }
+  constructor(private servicioProductos : ProductosService, private rout : Router, private menu2: MenuController) { }
 
   ngOnInit() {
     // tomando del servicio el metodo buscar todo
@@ -29,5 +28,9 @@ export class ProductosPage implements OnInit {
   redireccionarAgregar(){
     console.log('Funciona metodo redireccion agregar');
     this.rout.navigate(['/agregar-producto']);
+  }
+
+  toggleMenu2(){
+    this.menu2.toggle();
   }
 }
