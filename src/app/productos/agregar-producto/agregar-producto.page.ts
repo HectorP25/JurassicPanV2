@@ -14,17 +14,8 @@ export class AgregarProductoPage implements OnInit {
   ngOnInit() {
   }
 
-  // Creamos metodo agregar producto
-  agregarProducto(titulo, url, comentario){
-    var lista = []
-    if (comentario.value !== ""){
-      lista.push(comentario.value)
-    }else{
-      lista = null
-    }
-    
-    this.ps.addProductos(titulo.value, url.value, lista);
+  agregarProducto(titulo, url,precio, descripcion){
+    this.ps.addProductos(titulo.value, url.value, precio.value, descripcion.value);
     this.router.navigate(['/productos']);
-    //  https://www.lacuarta.com/wp-content/uploads/2020/03/pancito.jpg
   }
 }

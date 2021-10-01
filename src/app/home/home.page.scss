@@ -1,7 +1,11 @@
 .my-custom-menu {
-    --width: 500px;
-  }
+  --width: 500px;
+}
 
 .padding-tittle{
   padding-left: 35%;
+}
+
+ion-content.background{
+  --background: url(https://imgur.com/2WwFCMH) 0 0/100% 100% no-repeat;
 }
