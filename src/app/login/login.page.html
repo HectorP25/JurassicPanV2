@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-button color="dark" slot="start" (click)="toggleMenu()">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="ion-text-center">LOGIN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <h3 class="ion-text-center" >INGRESAR</h3>
+            <ion-input class="ion-text-center" name="user" type="text" placeholder="USUARIO" ngModel required></ion-input>
+            <ion-input class="ion-text-center" name="pass" type="password" placeholder="CONTRASENA" ngModel required></ion-input>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">INGRESAR</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

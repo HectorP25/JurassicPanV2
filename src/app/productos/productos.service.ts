@@ -8,7 +8,7 @@ export class ProductosService {
   private productos = [
     {
       id : '1',
-      titulo : 'Trozo de pastel de chocolate',
+      titulo : 'Pastel de chocolate',
       imagenURL : 'https://i.imgur.com/XBkwlT2.jpg',
       precio : 1000,
       descripcion : 'Trozo de pastel de chocolate relleno de un bizcocho sabor chocolate'
@@ -19,6 +19,34 @@ export class ProductosService {
       imagenURL : 'https://i.imgur.com/OrHYwgC.jpg',
       precio : 1000,
       descripcion : 'Rico berlin con crema pastelera'
+    },
+    {
+      id : '3',
+      titulo : 'Alfajor',
+      imagenURL : 'https://i.imgur.com/VuKyShM.jpg',
+      precio : 1000,
+      descripcion : 'Alfajor relleno de manjar'
+    },
+    {
+      id : '4',
+      titulo : 'Muffin',
+      imagenURL : 'https://i.imgur.com/exohXTc.png',
+      precio : 1000,
+      descripcion : 'Rico Muffin con chispas de chocolate'
+    },
+    {
+      id : '5',
+      titulo : 'Marraqueta',
+      imagenURL : 'https://i.imgur.com/h8YIFlI.jpg',
+      precio : 0,
+      descripcion : 'Marraqueta gratis'
+    },
+    {
+      id : '6',
+      titulo : 'Hallullita',
+      imagenURL : 'https://i.imgur.com/vdmYg0l.png',
+      precio : 1000,
+      descripcion : 'A las buenas hallullas'
     },
     
   ]
