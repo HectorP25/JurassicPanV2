@@ -1,0 +1,14 @@
+<ion-menu side="start" menuId="menu1" contentId="principal">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title>MENU</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item [routerLink]="['home']" ><ion-icon slot="start" name="home-outline"></ion-icon>HOME</ion-item>
+      <ion-item [routerLink]="['productos']" ><ion-icon slot="start" name="fast-food-outline"></ion-icon>PRODUCTOS</ion-item>
+      <ion-item [routerLink]="['login']" ><ion-icon slot="start" name="person-outline"></ion-icon> INGRESAR</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
