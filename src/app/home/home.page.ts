@@ -10,7 +10,13 @@ export class HomePage implements OnInit {
 
   constructor(private menu: MenuController) { }
 
+  user = localStorage.getItem("datosUsuario")
+
   ngOnInit() {
+  }
+  
+  ionViewWillEnter() {
+    this.menu.enable(true);
   }
 
   toggleMenu(){

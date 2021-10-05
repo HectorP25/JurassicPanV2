@@ -11,8 +11,9 @@ import { MenuController } from '@ionic/angular';
 export class ProductosPage implements OnInit {
 
   private productos = []
+  user = localStorage.getItem("datosUsuario")
   
-  constructor(private servicioProductos : ProductosService, private rout : Router, private menu2: MenuController) { }
+  constructor(private servicioProductos : ProductosService, private rout : Router, private menu: MenuController) { }
 
   ngOnInit() {
     this.productos = this.servicioProductos.getProductos();
@@ -27,7 +28,11 @@ export class ProductosPage implements OnInit {
     this.rout.navigate(['/agregar-producto']);
   }
 
+  ionViewWillmenu() {
+    this.menu.enable(true);
+  }
+
   toggleMenu2(){
-    this.menu2.toggle();
+    this.menu.toggle();
   }
 }

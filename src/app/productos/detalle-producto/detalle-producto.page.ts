@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Enrutar
 import { ActivatedRoute, Router } from '@angular/router'; 
+import { MenuController } from '@ionic/angular';
 // Conectar servicio
 import { ProductosService } from '../productos.service';
 import { producto } from './producto.model';
@@ -14,7 +15,7 @@ export class DetalleProductoPage implements OnInit {
 
   datos : producto;
 
-  constructor(private ar : ActivatedRoute, private ps : ProductosService, private rou : Router) { }
+  constructor(private ar : ActivatedRoute, private ps : ProductosService, private rou : Router, private menu : MenuController) { }
 
   ngOnInit() {
 
@@ -32,5 +33,13 @@ export class DetalleProductoPage implements OnInit {
     console.log("Eliminado")
     this.ps.deleteProductos(this.datos.id)
     this.rou.navigate(['/productos'])
+  }
+
+  ionViewWillmenu() {
+    this.menu.enable(true);
+  }
+
+  toggleMenu2(){
+    this.menu.toggle();
   }
 }

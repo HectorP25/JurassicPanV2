@@ -13,31 +13,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid class="ion-no-padding">
-    <ion-row>
-      <ion-col>
+<ion-content class="background">
+    <div class="padtop">
+      <ion-card>
+        <ion-text class="ion-text-center" color="dark">
+          <h1 class="ion-text-center">{{datos.titulo}}</h1>
+        </ion-text>
         <ion-img [src]="datos.imagenURL"></ion-img>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <h1 class="ion-text-center">{{datos.titulo}}</h1>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <h1 class="ion-text-center">{{datos.precio}}</h1>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <h1 class="ion-text-center">{{datos.descripcion}}</h1>
-      </ion-col>
-    </ion-row>
-
-  </ion-grid>
+        <ion-card-header>
+          <h1 class="ion-text-center">${{datos.precio}}</h1>
+        </ion-card-header>
+        <ion-card-content>
+          <h1 class="ion-text-center">{{datos.descripcion}}</h1>
+            <ion-button color="dark" class=" center button button-block button-positive" (click)="onClick()" style="width:100px">
+              Comprar
+            </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
 </ion-content>

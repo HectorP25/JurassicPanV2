@@ -14,17 +14,19 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  toggleMenu(){
-    this.menu.toggle;
+  ionViewWillEnter() {
+    this.menu.enable(false);
   }
   
   login(form){
     var user = form.value["user"];
     var pass = form.value["pass"];
 
-    if(user == "admin" && pass == "123"){
+    if(user == "admin" && pass == "admin"){
       console.log("Logeado")
+      localStorage.setItem("datosUsuario",user);
       this.router.navigate(['/home'])
     }
   }
+
 }

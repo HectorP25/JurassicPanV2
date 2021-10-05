@@ -1,24 +1,32 @@
 <ion-header>
-  <ion-toolbar color="dark" >
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center" >Agregar Producto</ion-title>
+    <ion-title class="ion-text-center">Agregar Producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-row>
-    <ion-col>
-      <ion-card>
-        <ion-card-content>
-          <ion-input class="ion-text-center" type="text" placeholder="Ingrese titulo" #titulo ></ion-input>
-          <ion-input class="ion-text-center" type="text" placeholder="Ingrese URL de imagen" #url ></ion-input>
-          <ion-input class="ion-text-center" type="text" placeholder="Ingrese precio" #precio ></ion-input>
-          <ion-input class="ion-text-center" type="text" placeholder="Ingrese descripcion" #descripcion ></ion-input>
-          <ion-button class="centrino" (click)="agregarProducto(titulo,url,precio,descripcion)">AGREGAR</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+<ion-content class="background">
+  <img  src="https://i.imgur.com/QNvcov9.png" class="center">
+  <div class="padtop">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-text class="ion-text-center" color="dark">
+              <h1 class="padbot">Agregar producto</h1>
+            </ion-text>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese nombre" #titulo></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese tipo producto" #tipo></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese URL de imagen" #url></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese precio" #precio></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese descripcion" #descripcion></ion-input>
+            <ion-button class="centrino" (click)="agregarProducto(titulo,tipo,url,precio,descripcion)">AGREGAR</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+  <img  src="https://i.imgur.com/QNvcov9.png" class="center">
 </ion-content>

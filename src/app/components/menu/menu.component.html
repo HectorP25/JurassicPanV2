@@ -1,4 +1,4 @@
-<ion-menu side="start" menuId="menu1" contentId="principal">
+<ion-menu side="start" type="push" menuId="menu1" contentId="principal">
   <ion-header>
     <ion-toolbar color="dark">
       <ion-title>MENU</ion-title>
@@ -12,9 +12,11 @@
       <ion-menu-toggle auto-hide="true">
         <ion-item [routerLink]="['productos']" ><ion-icon slot="start" name="fast-food-outline"></ion-icon>PRODUCTOS</ion-item>
       </ion-menu-toggle>
-      <ion-menu-toggle auto-hide="true">
+      <!-- <ion-menu-toggle auto-hide="true">
         <ion-item [routerLink]="['login']" ><ion-icon slot="start" name="person-outline"></ion-icon> INGRESAR</ion-item>
-      </ion-menu-toggle>
+      </ion-menu-toggle> -->
+
     </ion-list>
   </ion-content>
 </ion-menu>
+<h1 slot="end">Bienvenido {{admin}}</h1>
