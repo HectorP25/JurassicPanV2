@@ -5,6 +5,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
+    <ion-list-header>Bienvenido/a {{user}}</ion-list-header>
     <ion-list>
       <ion-menu-toggle auto-hide="true">
         <ion-item [routerLink]="['home']" ><ion-icon slot="start" name="home-outline"></ion-icon>HOME</ion-item>
@@ -12,11 +13,21 @@
       <ion-menu-toggle auto-hide="true">
         <ion-item [routerLink]="['productos']" ><ion-icon slot="start" name="fast-food-outline"></ion-icon>PRODUCTOS</ion-item>
       </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true">
+        <ion-item><ion-icon slot="start" name="logo-facebook"></ion-icon>FACEBOOK</ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true">
+        <ion-item><ion-icon slot="start" name="logo-instagram"></ion-icon>INSTAGRAM</ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true">
+        <ion-item><ion-icon slot="start" name="logo-twitter"></ion-icon>TWITTER</ion-item>
+      </ion-menu-toggle>
       <!-- <ion-menu-toggle auto-hide="true">
         <ion-item [routerLink]="['login']" ><ion-icon slot="start" name="person-outline"></ion-icon> INGRESAR</ion-item>
       </ion-menu-toggle> -->
-
+      <ion-menu-toggle auto-hide="true">
+        <ion-item><ion-icon slot="start" name="log-out-outline"></ion-icon>CERRAR SESION</ion-item>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>
-<h1 slot="end">Bienvenido {{admin}}</h1>
