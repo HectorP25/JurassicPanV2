@@ -10,17 +10,27 @@ import { MenuController } from '@ionic/angular';
 })
 export class ProductosPage implements OnInit {
 
-  private productos = []
+  // esta variable recibe todo lo que tiene la API
+  productos : any = [] 
+
   user = localStorage.getItem("datosUsuario")
   
   constructor(private servicioProductos : ProductosService, private rout : Router, private menu: MenuController) { }
 
   ngOnInit() {
-    this.productos = this.servicioProductos.getProductos();
+    this.servicioProductos.getProductos().subscribe(
+      (resp) => { this.productos = resp 
+                  console.log(resp)},
+      (err) => { console.log(err) }
+    )
   }
 
   ionViewWillEnter(){
-    this.productos = this.servicioProductos.getProductos();
+    this.servicioProductos.getProductos().subscribe(
+      (resp) => { this.productos = resp 
+                  console.log(resp)},
+      (err) => { console.log(err) }
+    )
   }
 
   redireccionarAgregar(){
