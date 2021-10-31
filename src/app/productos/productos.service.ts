@@ -11,31 +11,27 @@ export class ProductosService {
   constructor( private http : HttpClient) { }
 
   getProductos(){
-    return this.http.get('http://localhost:1337/Productos');
+    return this.http.get('http://localhost:1337/Productos/');
   }
 
   getProductosById(pid : string){
-    return{
-      ...this.productos.find( serv => {
-      return serv.id === pid
-    } )
-    }
+    return this.http.get('http://localhost:1337/Productos/' + pid);
   }
 
   addProductos(tit : string, tipo : string, imgURL : string, precio : number, des:string){
-    this.productos.push({
-      id : String(this.productos.length + 1),
-      titulo : tit,
-      tipo : tipo,
-      imagenURL : imgURL,
-      precio : precio,
-      descripcion : des
-    })
+    var datos = {
+      "titulo" : tit,
+      "tipo" : tipo,
+      "imagenURL" : imgURL,
+      "precio" : precio,
+      "descripcion" : des
+    }
+
+    return this.http.post('http://localhost:1337/Productos/', datos);
+
   }
 
   deleteProductos(pid : string){
-    this.productos =  this.productos.filter(serv => {
-                        return serv.id !== pid
-                      })
+    return this.http.delete('http://localhost:1337/Productos/' + pid);
   }
 }

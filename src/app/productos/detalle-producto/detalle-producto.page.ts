@@ -13,7 +13,7 @@ import { producto } from './producto.model';
 })
 export class DetalleProductoPage implements OnInit {
 
-  datos : producto;
+  datos : any = [];
 
   constructor(private ar : ActivatedRoute, private ps : ProductosService, private rou : Router, private menu : MenuController) { }
 
@@ -24,15 +24,25 @@ export class DetalleProductoPage implements OnInit {
       const valor = pm.get('prodID')
       console.log("ID : " + valor)
 
-      this.datos = this.ps.getProductosById(valor)
+      this.ps.getProductosById(valor).subscribe(
+        (resp) => { this.datos = resp 
+                    console.log(resp)},
+        (err) => { console.log(err) }
+      )
       console.log(this.datos)
     })
   }
 
   eliminar(){
     console.log("Eliminado")
-    this.ps.deleteProductos(this.datos.id)
-    this.rou.navigate(['/productos'])
+    this.ps.deleteProductos(this.datos.id).subscribe(
+      (resp) => { this.datos = resp 
+                  console.log(resp)
+                  this.rou.navigate(['/productos'])},
+      (err) => { console.log(err) }
+    )
+    console.log(this.datos)
+    
   }
 
   ionViewWillmenu() {
