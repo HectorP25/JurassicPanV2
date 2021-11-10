@@ -24,7 +24,11 @@ export class AgregarProductoPage implements OnInit {
   }
 
   agregarProducto(titulo, tipo, url, precio, descripcion){
-    this.ps.addProductos(titulo.value, tipo.value, url.value, precio.value, descripcion.value);
-    this.router.navigate(['/productos']);
+    this.ps.addProductos(titulo.value, tipo.value, url.value, precio.value, descripcion.value).subscribe(
+      (resp) => { console.log("Agrego : " + resp)
+                  this.router.navigate(['/productos']);},
+      (err) => { console.log(err) }
+    );
+    
   }
 }

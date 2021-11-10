@@ -32,7 +32,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-
+  {
+    path: 'actualizar-producto/:prodID',
+    loadChildren : () => import('./productos/actualizar-producto/actualizar-producto.module').then( m => m.ActualizarProductoPageModule)
+  },
 
 
 ];

@@ -34,4 +34,17 @@ export class ProductosService {
   deleteProductos(pid : string){
     return this.http.delete('http://localhost:1337/Productos/' + pid);
   }
+
+  updateProductos(pid : string, titulo : string, tipo : string, imagenURL : string, precio : number, descripcion : string){
+    
+    var dato = {
+      "titulo" : titulo,
+      "imagenURL" : imagenURL,
+      "precio" : precio,
+      "descripcion" : descripcion,
+      "tipo" : tipo
+    }
+
+    return this.http.put('http://localhost:1337/Productos/' + pid , dato)
+  }
 }

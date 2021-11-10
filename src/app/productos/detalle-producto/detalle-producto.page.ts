@@ -15,6 +15,9 @@ export class DetalleProductoPage implements OnInit {
 
   datos : any = [];
 
+  
+  private pid;
+
   constructor(private ar : ActivatedRoute, private ps : ProductosService, private rou : Router, private menu : MenuController) { }
 
   ngOnInit() {
@@ -23,9 +26,9 @@ export class DetalleProductoPage implements OnInit {
 
       const valor = pm.get('prodID')
       console.log("ID : " + valor)
-
+      this.pid = valor;
       this.ps.getProductosById(valor).subscribe(
-        (resp) => { this.datos = resp 
+        (resp : any) => { this.datos = resp 
                     console.log(resp)},
         (err) => { console.log(err) }
       )
@@ -43,6 +46,10 @@ export class DetalleProductoPage implements OnInit {
     )
     console.log(this.datos)
     
+  }
+
+  editar(){
+    this.rou.navigate(['actualizar-producto/' + this.pid])
   }
 
   ionViewWillmenu() {

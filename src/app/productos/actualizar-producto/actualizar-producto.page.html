@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Actualizar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <img  src="https://i.imgur.com/QNvcov9.png" class="center">
+  <div class="padtop">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-text class="ion-text-center" color="dark">
+              <h1 class="padbot">Actualizar producto</h1>
+            </ion-text>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese nombre" [(ngModel)]="producto.titulo" #titulo></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese tipo producto" [(ngModel)]="producto.tipo" #tipo></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese URL de imagen" [(ngModel)]="producto.imagenURL" #imagenURL></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese precio" [(ngModel)]="producto.precio" #precio></ion-input>
+            <ion-input class="ion-text-center" type="text" placeholder="Ingrese descripcion" [(ngModel)]="producto.descripcion"></ion-input>
+            <ion-button class="centrino" (click)="actualizarProducto(titulo,tipo,imagenURL,precio,descripcion)">ACTUALIZAR</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+  <img  src="https://i.imgur.com/QNvcov9.png" class="center">
+</ion-content>
