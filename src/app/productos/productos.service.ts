@@ -35,16 +35,17 @@ export class ProductosService {
     return this.http.delete('http://localhost:1337/Productos/' + pid);
   }
 
-  updateProductos(pid : string, titulo : string, tipo : string, imagenURL : string, precio : number, descripcion : string){
+  // update con problemas arreglas antes de envio
+  updateProductos(pid : string, tit : string, tip : string, imgURL : string, pre : number, desc : string){
     
-    var dato = {
-      "titulo" : titulo,
-      "imagenURL" : imagenURL,
-      "precio" : precio,
-      "descripcion" : descripcion,
-      "tipo" : tipo
+    var datos2 = {
+      "titulo" : tit,
+      "tipo" : tip,
+      "imagenURL" : imgURL,
+      "precio" : pre,
+      "descripcion" : desc
     }
 
-    return this.http.put('http://localhost:1337/Productos/' + pid , dato)
+    return this.http.put('http://localhost:1337/Productos/' + pid , datos2)
   }
 }

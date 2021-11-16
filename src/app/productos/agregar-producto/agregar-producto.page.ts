@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { ProductosService } from '../productos.service';
+import { TipoProductoService } from 'src/app/tipo-producto.service'; 
 
 @Component({
   selector: 'app-agregar-producto',
@@ -10,9 +11,20 @@ import { ProductosService } from '../productos.service';
 })
 export class AgregarProductoPage implements OnInit {
 
-  constructor(private ps : ProductosService, private router : Router, private menu : MenuController) { }
+  lista : any = []
+
+  constructor(private ps : ProductosService, private router : Router, private menu : MenuController, private tps : TipoProductoService) { }
 
   ngOnInit() {
+    this.tps.getTipoProducto().subscribe(
+      (respuesta) => {
+        this.lista = respuesta
+      },
+      (error) => {
+        console.log("Error al cargar tipo de productos ")
+        console.log(error)
+      }
+    )
   }
 
   ionViewWillmenu() {

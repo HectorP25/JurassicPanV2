@@ -22,7 +22,6 @@ export class ActualizarProductoPage implements OnInit {
     this.ar.paramMap.subscribe( pm => {
 
       const valor = pm.get('prodID')
-      console.log("ID : " + valor)
       this.idProducto = valor
 
       this.ps.getProductosById(valor).subscribe(
@@ -34,14 +33,18 @@ export class ActualizarProductoPage implements OnInit {
     })
   }
 
-  actualizarProducto(titulo,tipo,imagenURL,precio,descripcion){
+  // Actualizar con problemas, no actualiza aplicacion error en metodo o aqui
+  actualizarProducto(tit,tip,imgURL,pre,desc){
 
-    this.ps.updateProductos(this.idProducto,titulo,tipo,imagenURL,precio,descripcion).subscribe(
-      (resp) => { 
-                  this.rou.navigate([' /productos']) 
-                  console.log(resp)},
-      (err) => { console.log(err) }
+    this.ps.updateProductos(this.idProducto,tit,tip,imgURL,pre,desc).subscribe(
+      (respuesta) => {
+        this.rou.navigate(['/productos'])
+      },
+      (error) => {
+        console.log(error)
+      }
     )
+      
     
 
   }
