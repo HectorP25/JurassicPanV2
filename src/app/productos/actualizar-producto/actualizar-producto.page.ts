@@ -34,10 +34,10 @@ export class ActualizarProductoPage implements OnInit {
   }
 
   // Actualizar con problemas, no actualiza aplicacion error en metodo o aqui
-  actualizarProducto(tit,tip,imgURL,pre,desc){
+  actualizarProducto(tit,tip,pre,desc){
 
-    this.ps.updateProductos(this.idProducto,tit,tip,imgURL,pre,desc).subscribe(
-      (respuesta : any) => {
+    this.ps.updateProductos(this.idProducto,tit,tip,pre,desc).subscribe(
+      (respuesta) => {
         this.producto = respuesta
         this.rou.navigate(['/productos'])
       },

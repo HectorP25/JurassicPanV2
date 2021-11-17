@@ -35,12 +35,11 @@ export class ProductosService {
   }
 
   // update con problemas arreglas antes de envio
-  updateProductos(pid : string, tit : string, tip : string, imgURL : string, pre : number, desc : string){
+  updateProductos(pid : string, tit : string, tip : string, pre : number, desc : string){
     
     var datos2 = {
       "titulo" : tit,
       "tipo" : tip,
-      "imagenURL" : imgURL,
       "precio" : pre,
       "descripcion" : desc
     }
