@@ -18,11 +18,10 @@ export class ProductosService {
     return this.http.get('http://localhost:1337/Productos/' + pid);
   }
 
-  addProductos(tit : string, tipo : string, imgURL : string, precio : number, des:string){
+  addProductos(tit : string, tipo : string, precio : number, des:string){
     var datos = {
       "titulo" : tit,
       "tipo" : tipo,
-      "imagenURL" : imgURL,
       "precio" : precio,
       "descripcion" : des
     }
@@ -46,6 +45,6 @@ export class ProductosService {
       "descripcion" : desc
     }
 
-    return this.http.put('http://localhost:1337/Productos/' + pid , datos2)
+    return this.http.put('http://localhost:1337/Productos/'+ pid , datos2)
   }
 }

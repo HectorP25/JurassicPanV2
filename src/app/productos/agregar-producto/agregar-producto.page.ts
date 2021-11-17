@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { ProductosService } from '../productos.service';
 import { TipoProductoService } from 'src/app/tipo-producto.service'; 
-
+declare var require : any
 @Component({
   selector: 'app-agregar-producto',
   templateUrl: './agregar-producto.page.html',
@@ -12,6 +12,8 @@ import { TipoProductoService } from 'src/app/tipo-producto.service';
 export class AgregarProductoPage implements OnInit {
 
   lista : any = []
+
+  private archivo : File = null;
 
   constructor(private ps : ProductosService, private router : Router, private menu : MenuController, private tps : TipoProductoService) { }
 
@@ -35,12 +37,31 @@ export class AgregarProductoPage implements OnInit {
     this.menu.toggle();
   }
 
-  agregarProducto(titulo, tipo, url, precio, descripcion){
-    this.ps.addProductos(titulo.value, tipo.value, url.value, precio.value, descripcion.value).subscribe(
+  img(event){
+     this.archivo = <File>event.target.files[0]
+  }
+
+  agregarProducto(titulo, tipo, precio, descripcion){
+
+    const axios = require('axios')
+
+    const STRAPI_BASE_URL = 'http://localhost:1337'
+
+    const datos = new FormData()
+    datos.append('files', this.archivo)
+    datos.append('ref', 'Producto')
+    datos.append('refId', '12')
+    datos.append('field', 'imagen')
+
+    axios.post(`${STRAPI_BASE_URL}/upload`, datos)
+
+    this.ps.addProductos(titulo.value, tipo.value, precio.value, descripcion.value).subscribe(
       (resp) => { console.log("Agrego : " + resp)
                   this.router.navigate(['/productos']);},
       (err) => { console.log(err) }
     );
     
   }
+
+  
 }
