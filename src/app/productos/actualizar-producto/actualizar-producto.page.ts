@@ -38,7 +38,7 @@ export class ActualizarProductoPage implements OnInit {
 
     this.ps.updateProductos(this.idProducto,tit,tip,pre,desc).subscribe(
       (respuesta) => {
-        this.producto = respuesta
+        
         this.rou.navigate(['/productos'])
       },
       (error) => {
