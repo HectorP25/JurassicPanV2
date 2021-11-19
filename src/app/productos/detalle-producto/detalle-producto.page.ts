@@ -25,15 +25,18 @@ export class DetalleProductoPage implements OnInit {
     this.ar.paramMap.subscribe( pm => {
 
       const valor = pm.get('prodID')
-      console.log("ID : " + valor)
       this.pid = valor;
-      this.ps.getProductosById(valor).subscribe(
-        (resp : any) => { this.datos = resp 
-                    console.log(resp)},
-        (err) => { console.log(err) }
-      )
-      console.log(this.datos)
     })
+
+    this.ps.getProductosById(this.pid).subscribe(
+      (resp : any) => { 
+                  this.datos = resp 
+                  console.log(resp)
+      },
+      (err) => { console.log(err) }
+    )
+
+
   }
 
   eliminar(){

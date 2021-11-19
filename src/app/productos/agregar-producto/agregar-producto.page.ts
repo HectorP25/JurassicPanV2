@@ -50,7 +50,7 @@ export class AgregarProductoPage implements OnInit {
     const datos = new FormData()
     datos.append('files', this.archivo)
     datos.append('ref', 'Producto')
-    datos.append('refId', '12')
+    datos.append('refId', localStorage.getItem("ultimoID"))
     datos.append('field', 'imagen')
 
     axios.post(`${STRAPI_BASE_URL}/upload`, datos)

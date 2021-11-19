@@ -17,11 +17,11 @@
             <ion-text class="ion-text-center" color="dark">
               <h1 class="padbot">Actualizar producto</h1>
             </ion-text>
-            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.titulo" #titulo></ion-input>
-            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.tipo" #tipo></ion-input>
-            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.precio" #precio></ion-input>
-            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.descripcion" #descripcion></ion-input>
-            <ion-button class="centrino" (click)="actualizarProducto(tit,tip,imgURL,pre,desc)">ACTUALIZAR</ion-button>
+            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.titulo" #tit></ion-input>
+            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.tipo" #tip></ion-input>
+            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.precio" #pre></ion-input>
+            <ion-input class="ion-text-center" type="text" [(ngModel)]="producto.descripcion" #desc></ion-input>
+            <ion-button class="centrino" (click)="actualizarProducto(tit,tip,pre,desc)">ACTUALIZAR</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>

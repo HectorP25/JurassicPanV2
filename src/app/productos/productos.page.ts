@@ -11,29 +11,35 @@ import { MenuController } from '@ionic/angular';
 export class ProductosPage implements OnInit {
 
   // esta variable recibe todo lo que tiene la API
-  productos : any = [] 
+  productos: any = []
 
   user = localStorage.getItem("datosUsuario")
-  
-  constructor(private servicioProductos : ProductosService, private rout : Router, private menu: MenuController) { }
+
+  constructor(private servicioProductos: ProductosService, private rout: Router, private menu: MenuController) { }
 
   ngOnInit() {
     this.servicioProductos.getProductos().subscribe(
-      (resp) => { this.productos = resp 
-                  console.log(resp)},
+      (resp) => {
+        this.productos = resp
+        localStorage.setItem("ultimoID", this.productos[this.productos.length - 1].id + 1)
+        console.log("Test : ", this.productos[this.productos.length - 1].id + 1)
+      },
       (err) => { console.log(err) }
     )
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.servicioProductos.getProductos().subscribe(
-      (resp) => { this.productos = resp 
-                  console.log(resp)},
+      (resp) => {
+        this.productos = resp
+        localStorage.setItem("ultimoID", this.productos[this.productos.length - 1].id + 1)
+        console.log("Test : ", this.productos[this.productos.length - 1].id + 1)
+      },
       (err) => { console.log(err) }
     )
   }
 
-  redireccionarAgregar(){
+  redireccionarAgregar() {
     console.log('Funciona metodo redireccion agregar');
     this.rout.navigate(['/agregar-producto']);
   }
@@ -42,7 +48,7 @@ export class ProductosPage implements OnInit {
     this.menu.enable(true);
   }
 
-  toggleMenu2(){
+  toggleMenu2() {
     this.menu.toggle();
   }
 }

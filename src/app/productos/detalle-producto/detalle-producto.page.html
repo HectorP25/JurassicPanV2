@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar color="dark" >
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center" >{{datos.titulo}}</ion-title>
+    <ion-title class="ion-text-center">{{datos.titulo}}</ion-title>
 
     <ion-buttons slot="end">
       <ion-button (click)="eliminar()">
@@ -16,26 +16,29 @@
         <ion-icon name="create-outline"></ion-icon>
       </ion-button>
     </ion-button>
-    
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background">
-    <div class="padtop">
-      <ion-card>
-        <ion-text class="ion-text-center" color="dark">
-          <h1 class="ion-text-center">{{datos.titulo}}</h1>
-        </ion-text>
-        <ion-img [src] = "'http://localhost:1337' + datos.imagen[0].url"></ion-img>
-        <ion-card-header>
-          <h1 class="ion-text-center">${{datos.precio}}</h1>
-        </ion-card-header>
-        <ion-card-content>
-          <h1 class="ion-text-center">{{datos.descripcion}}</h1>
-            <ion-button color="dark" class=" center button button-block button-positive" (click)="onClick()" style="width:100px">
-              Comprar
-            </ion-button>
-        </ion-card-content>
-      </ion-card>
-    </div>
+  <div class="padtop">
+    <ion-card>
+      <ion-text class="ion-text-center" color="dark">
+        <h1 class="ion-text-center">{{datos.titulo}}</h1>
+      </ion-text>
+      <ion-item *ngFor = "let pro of datos.imagen">
+        <ion-img [src]="'http://localhost:1337' + pro.url"></ion-img>
+      </ion-item>
+      <ion-card-header>
+        <h1 class="ion-text-center">${{datos.precio}}</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <h1 class="ion-text-center">{{datos.descripcion}}</h1>
+        <ion-button color="dark" class=" center button button-block button-positive" (click)="onClick()"
+          style="width:100px">
+          Comprar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
