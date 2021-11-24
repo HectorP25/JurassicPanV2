@@ -41,7 +41,7 @@ export class AgregarProductoPage implements OnInit {
      this.archivo = <File>event.target.files[0]
   }
 
-  agregarProducto(titulo, tipo, precio, descripcion){
+  agregarProducto(titulo, tipo, precio, descripcion, oferta){
 
     const axios = require('axios')
 
@@ -55,7 +55,7 @@ export class AgregarProductoPage implements OnInit {
 
     axios.post(`${STRAPI_BASE_URL}/upload`, datos)
 
-    this.ps.addProductos(titulo.value, tipo.value, precio.value, descripcion.value).subscribe(
+    this.ps.addProductos(titulo.value, tipo.value, precio.value, descripcion.value, oferta.checked).subscribe(
       (resp) => { console.log("Agrego : " + resp)
                   this.router.navigate(['/productos']);},
       (err) => { console.log(err) }

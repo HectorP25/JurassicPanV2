@@ -18,12 +18,13 @@ export class ProductosService {
     return this.http.get('http://localhost:1337/Productos/' + pid);
   }
 
-  addProductos(tit : string, tipo : string, precio : number, des:string){
+  addProductos(tit : string, tipo : string, precio : number, des:string, oferta:boolean){
     var datos = {
       "titulo" : tit,
       "tipo" : tipo,
       "precio" : precio,
-      "descripcion" : des
+      "descripcion" : des,
+      "oferta" : oferta
     }
 
     return this.http.post('http://localhost:1337/Productos/', datos);
