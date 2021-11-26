@@ -28,7 +28,6 @@ export class LoginPage implements OnInit {
     identifier: user,
     password: pass,
     });
-    console.log(data);
     let token_jwt = data.jwt;
     localStorage.setItem("jwt",token_jwt);
     this.router.navigate(['/home'])

@@ -56,9 +56,10 @@ export class AgregarProductoPage implements OnInit {
     axios.post(`${STRAPI_BASE_URL}/upload`, datos)
 
     this.ps.addProductos(titulo.value, tipo.value, precio.value, descripcion.value, oferta.checked).subscribe(
-      (resp) => { console.log("Agrego : " + resp)
+      (resp) => { console.log("Agrego : " + resp )
+                  this.lista = resp 
                   this.router.navigate(['/productos']);},
-      (err) => { console.log(err) }
+      (err) => { console.log(err)}
     );
     
   }

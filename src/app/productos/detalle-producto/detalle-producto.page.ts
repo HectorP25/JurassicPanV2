@@ -15,7 +15,8 @@ export class DetalleProductoPage implements OnInit {
 
   datos : any = [];
 
-  
+  private url
+
   private pid;
 
   constructor(private ar : ActivatedRoute, private ps : ProductosService, private rou : Router, private menu : MenuController) { }
@@ -30,7 +31,8 @@ export class DetalleProductoPage implements OnInit {
 
     this.ps.getProductosById(this.pid).subscribe(
       (resp : any) => { 
-                  this.datos = resp 
+                  this.datos = resp
+                  this.url = resp.imagen.url
                   console.log(resp)
       },
       (err) => { console.log(err) }

@@ -19,8 +19,9 @@ export class ProductosPage implements OnInit {
 
   ngOnInit() {
     this.servicioProductos.getProductos().subscribe(
-      (resp) => {
+      (resp : any) => {
         this.productos = resp
+        console.log(resp)
         localStorage.setItem("ultimoID", this.productos[this.productos.length - 1].id + 1)
         console.log("Test : ", this.productos[this.productos.length - 1].id + 1)
       },

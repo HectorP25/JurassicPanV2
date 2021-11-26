@@ -26,9 +26,7 @@
       <ion-text class="ion-text-center" color="dark">
         <h1 class="ion-text-center">{{datos.titulo}}</h1>
       </ion-text>
-      <ion-item *ngFor = "let pro of datos.imagen">
-        <ion-img [src]="'http://localhost:1337' + pro.url"></ion-img>
-      </ion-item>
+        <ion-img [src]="'http://localhost:1337' + url"></ion-img>
       <ion-card-header>
         <h1 class="ion-text-center">${{datos.precio}}</h1>
       </ion-card-header>
