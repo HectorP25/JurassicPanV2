@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
     var user = form.value["user"];
     var pass = form.value["pass"];
 
-    const { data } = await axios.post('http://localhost:1337/auth/local', {
+    const { data } = await axios.post('https://strapijpv2.herokuapp.com/auth/local', {
     identifier: user,
     password: pass,
     });

@@ -11,11 +11,11 @@ export class ProductosService {
   constructor( private http : HttpClient) { }
 
   getProductos(){
-    return this.http.get('http://localhost:1337/Productos/');
+    return this.http.get('https://strapijpv2.herokuapp.com/Productos/');
   }
 
   getProductosById(pid : string){
-    return this.http.get('http://localhost:1337/Productos/' + pid);
+    return this.http.get('https://strapijpv2.herokuapp.com/Productos/' + pid);
   }
 
   addProductos(tit : string, tipo : string, precio : number, des:string, oferta:boolean){
@@ -27,12 +27,12 @@ export class ProductosService {
       "oferta" : oferta
     }
 
-    return this.http.post('http://localhost:1337/Productos/', datos);
+    return this.http.post('https://strapijpv2.herokuapp.com/Productos/', datos);
 
   }
 
   deleteProductos(pid : string){
-    return this.http.delete('http://localhost:1337/Productos/' + pid);
+    return this.http.delete('https://strapijpv2.herokuapp.com/Productos/' + pid);
   }
 
   // update con problemas arreglas antes de envio
@@ -45,6 +45,6 @@ export class ProductosService {
       "descripcion" : desc
     }
 
-    return this.http.put('http://localhost:1337/Productos/'+ pid , datos2)
+    return this.http.put('https://strapijpv2.herokuapp.com/Productos/'+ pid , datos2)
   }
 }
