@@ -9,6 +9,6 @@ export class TipoProductoService {
   constructor( private http : HttpClient) { }
 
   getTipoProducto(){
-    return this.http.get('http://localhost:1337/tipo-productos')
+    return this.http.get('https://strapijpv2.herokuapp.com/tipo-productos')
   }
 }
